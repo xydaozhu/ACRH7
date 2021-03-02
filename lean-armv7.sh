@@ -2,11 +2,11 @@
 # sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Mod zzz-default-settings
-pushd package/lean/default-settings/files
-sed -i '/http/d' zzz-default-settings
-export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
-sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
-popd
+# pushd package/lean/default-settings/files
+# sed -i '/http/d' zzz-default-settings
+# export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
+# sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
+# popd
 
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
