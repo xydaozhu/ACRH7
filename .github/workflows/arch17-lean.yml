@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: ACRH17-Lean-get
+name: ACRH17-Lean-get-T
 
 on:
   repository_dispatch:
@@ -25,7 +25,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.lean.conf.default
-  CONFIG_FILE: acrh17-lean.config
+  CONFIG_FILE: .config
   DIY_SH: lean-armv7.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
