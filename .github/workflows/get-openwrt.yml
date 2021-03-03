@@ -64,14 +64,19 @@ jobs:
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         cd openwrt
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: |    
+        cd openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install libpam
+        ./scripts/feeds install liblzma
+        ./scripts/feeds install libnetsnmp
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
     - name: tar
       id: tar
-      if: env.UPLOAD_TAR == 'true' && !cancelled()
+#      if: env.UPLOAD_TAR == 'true' && !cancelled()
       run: |
         cd /workdir
         tar cvzf openwrt.tar.gz openwrt 2>/workdir/1    
