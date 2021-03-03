@@ -25,7 +25,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.lean.conf.default
-  CONFIG_FILE: acrh17.config
+  CONFIG_FILE: arch17-lean.config
   DIY_SH: lean-armv7.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
