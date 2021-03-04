@@ -24,9 +24,9 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.lean.conf.RM2100
+  FEEDS_CONF: RM2100.feeds.lean.conf
   CONFIG_FILE: RM2100.config
-  DIY_SH: lean-RM2100.sh
+  DIY_SH: RM2100-lean.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
