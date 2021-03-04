@@ -6,7 +6,7 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
-#
+#https://git.lede-project.org/source.git
 
 name: Build OpenWrt-kvr
 
@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://git.lede-project.org/source.git
+  REPO_URL: https://git.openwrt.org/openwrt/openwrt.git/
   REPO_BRANCH: master
   FEEDS_CONF: openwrt.feeds.conf.default
   CONFIG_FILE: openwrt.config
