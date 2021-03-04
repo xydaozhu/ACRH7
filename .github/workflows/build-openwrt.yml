@@ -82,8 +82,10 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-    - name: Load kvr
-        run:[ -e $KVR ] && mv $KVR openwrt/package/network/services/hostapd/files/hostapd.sh
+    - name: Load  kvr
+      run: |    
+        [ -e $KVR ] 
+        mv $KVR openwrt/package/network/services/hostapd/files/hostapd.sh
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
