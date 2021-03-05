@@ -115,7 +115,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzaa 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzaa 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5a
@@ -126,7 +126,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzab 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzab 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5b
@@ -137,7 +137,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzac 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzac 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5c
@@ -148,7 +148,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzad 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzad 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5d
@@ -159,7 +159,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzae 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzae 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5e
@@ -170,7 +170,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzaf 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzaf 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5
@@ -180,7 +180,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzag 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzag 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5
@@ -191,7 +191,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzah 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzah 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5h
@@ -202,7 +202,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzai 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzai 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
     - name: WETRANSFER sleep 5i
@@ -213,7 +213,7 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress openwrt.tar.gzaj 2>&1 | tee wetransfer.log
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzaj 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
 
