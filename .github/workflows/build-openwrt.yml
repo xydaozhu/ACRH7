@@ -76,8 +76,8 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        [ -e $KVR ] && mv $KVR openwrt/package/network/services/hostapd/files/hostapd.sh
+        mv $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config
+        mv $GITHUB_WORKSPACE/$KVR openwrt/package/network/services/hostapd/files/hostapd.sh
         sed -i 's/192.168.1.1/192.168.2.1/g' openwrt/package/base-files/files/bin/config_generate
 
      
