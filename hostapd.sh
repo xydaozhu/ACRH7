@@ -281,14 +281,16 @@ hostapd_common_add_bss_config() {
 	config_add_string wps_device_type wps_device_name wps_manufacturer wps_pin
 	config_add_string multi_ap_backhaul_ssid multi_ap_backhaul_key
 
-	config_add_boolean ieee80211v  wnm_sleep_mode bss_transition
-	config_add_int time_advertisement
-	config_add_string time_zone
+
 
 	config_add_boolean ieee80211k rrm_neighbor_report rrm_beacon_report
 
 	config_add_boolean ftm_responder stationary_ap
 	config_add_string lci civic
+
+	config_add_boolean ieee80211v  wnm_sleep_mode bss_transition
+	config_add_int time_advertisement
+	config_add_string time_zone
 
 	config_add_boolean ieee80211r pmk_r1_push ft_psk_generate_local ft_over_ds
 	config_add_int r0_key_lifetime reassociation_deadline
@@ -737,16 +739,7 @@ hostapd_set_bss_options() {
 		}
 	fi
 
-	json_get_vars ieee80211k
-	set_default ieee80211k 0
-	if [ "$ieee80211k" -eq "1" ]; then
-		json_get_vars rrm_neighbor_report rrm_beacon_report
 
-		set_default rrm_neighbor_report 1
-		set_default rrm_beacon_report 1
-		append bss_conf "rrm_neighbor_report=$rrm_neighbor_report" "$N"
-		append bss_conf "rrm_beacon_report=$rrm_beacon_report" "$N"
-	fi
 	json_get_vars ieee80211v
 	set_default ieee80211v 0
 	if [ "$ieee80211v" -eq "1" ]; then
