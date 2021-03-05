@@ -63,6 +63,7 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Load custom feeds
       run: |
+        [ -e files ] && mv files openwrt/files
         mv $GITHUB_WORKSPACE/$FEEDS_CONF openwrt/feeds.conf.default
         cd openwrt
     - name: Update feeds
