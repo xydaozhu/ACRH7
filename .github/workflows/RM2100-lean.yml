@@ -30,8 +30,8 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
-  UPLOAD_TAR: true
-  UPLOAD_WETRANSFER: false
+  UPLOAD_TAR: false
+  UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
@@ -106,7 +106,7 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
     - name: tar
       id: tar
-      if: env.UPLOAD_TAR == 'true' && !cancelled()
+#      if: env.UPLOAD_TAR == 'true' && !cancelled()
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz 
