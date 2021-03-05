@@ -76,8 +76,28 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        mv $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config
-        mv $GITHUB_WORKSPACE/$KVR openwrt/package/network/services/hostapd/files/hostapd.sh
+        if [ -e $CONFIG_FILE ]; then
+          echo '查到配置文件，复制到.config中'
+          cp -f $CONFIG_FILE openwrt/.config;
+          
+        fi
+        if [ -e $KVR ]; then
+          echo '查到hostapd.sh，复制到openwrt/package/network/services/hostapd/files/hostapd.sh'
+          cp -f $KVR openwrt/package/network/services/hostapd/files/hostapd.sh;
+          
+        fi
+        if [ -e$GITHUB_WORKSPACE/$CONFIG_FILE ]; then
+          echo '查到配置文件;1，mv到.config中'
+          mv $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config;
+          
+        fi
+        if [ -e $GITHUB_WORKSPACE/$KVR ]; then
+          echo '查到hostapd.sh;1，mv到openwrt/package/network/services/hostapd/files/hostapd.sh'
+          mv $GITHUB_WORKSPACE/$KVR openwrt/package/network/services/hostapd/files/hostapd.sh;
+          
+        fi        
+        
+        
         sed -i 's/192.168.1.1/192.168.2.1/g' openwrt/package/base-files/files/bin/config_generate
 
      
