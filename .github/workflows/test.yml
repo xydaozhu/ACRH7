@@ -1,0 +1,104 @@
+#
+# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
+# https://github.com/P3TERX/Actions-OpenWrt
+# Description: Build OpenWrt using GitHub Actions
+#https://git.lede-project.org/source.git
+
+name: test
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+
+env:
+  REPO_URL: https://git.openwrt.org/openwrt/openwrt.git/
+  REPO_BRANCH: master
+  FEEDS_CONF: openwrt.feeds.conf.default
+  CONFIG_FILE: openwrt.config
+  KVR: hostapd.sh
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: true
+  UPLOAD_COWTRANSFER: true
+  UPLOAD_TAR: fasle
+  UPLOAD_WETRANSFER: true
+  UPLOAD_RELEASE: false
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo -E apt-get -qq update
+        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804)
+        sudo -E apt-get -qq autoremove --purge
+        sudo -E apt-get -qq clean
+        sudo timedatectl set-timezone "$TZ"
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir
+    - name: Clone source code
+      working-directory: /workdir
+      run: |
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+
+
+    - name: Load custom configuration
+      run: |
+        [ -e files ] && mv files openwrt/files
+        if [ -e $CONFIG_FILE ]; then
+          echo '查到配置文件，复制到.config中'
+          cp -f $CONFIG_FILE openwrt/.config;
+          
+        fi
+        if [ -e $KVR ]; then
+          echo '查到hostapd.sh，复制到openwrt/package/network/services/hostapd/files/hostapd.sh'
+          cp -f $KVR openwrt/package/network/services/hostapd/files/hostapd.sh;
+          
+        fi
+        if [ -e$GITHUB_WORKSPACE/$CONFIG_FILE ]; then
+          echo '查到配置文件;1，mv到.config中'
+          mv $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config;
+          
+        fi
+        if [ -e $GITHUB_WORKSPACE/$KVR ]; then
+          echo '查到hostapd.sh;1，mv到openwrt/package/network/services/hostapd/files/hostapd.sh'
+          mv $GITHUB_WORKSPACE/$KVR openwrt/package/network/services/hostapd/files/hostapd.sh;
+          
+        fi        
+        
+
+     
+
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 3
+
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.1.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        keep_latest: 3
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
