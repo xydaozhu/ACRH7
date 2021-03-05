@@ -112,114 +112,160 @@ jobs:
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz 
         
     - name: Upload openwrt.tar.gzaa to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() &&  [ -e /workdir/openwrt.tar.gzaa ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
+        if [ -e /workdir/openwrt.tar.gzaa ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzaa 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5a
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()  && [ -e /workdir/openwrt.tar.gzaa ]
-      run: sleep 5m        
+        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")" 
+        fi
+    - name: sleep 5a
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzaa ]; then
+        sleep 5m
+        fi        
 
     - name: Upload openwrt.tar.gzab to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzab ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
+        if [ -e /workdir/openwrt.tar.gzab ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzab 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5b
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzab ]
-      run: sleep 5m 
+        fi
+    - name: sleep 5b
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzab ]; then
+        sleep 5m
+        fi
       
     - name: Upload openwrt.tar.gzac to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzac ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |
+        if [ -e /workdir/openwrt.tar.gzac ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzac 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5c
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzac ]
-      run: sleep 5m 
+        fi
+    - name: sleep 5c
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzac ]; then
+        sleep 5m
+        fi
 
     - name: Upload openwrt.tar.gzad to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzad ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |
+        if [ -e /workdir/openwrt.tar.gzad ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzad 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5d
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzad ]
-      run: sleep 5m 
+        fi
+    - name: sleep 5d
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzad ]; then
+        sleep 5m
+        fi
       
     - name: Upload openwrt.tar.gzae to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzae ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |
+        if [ -e /workdir/openwrt.tar.gzae ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzae 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5e
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzae ]
-      run: sleep 5m 
+        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")" 
+        fi
+    - name: sleep 5e
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzae ]; then
+        sleep 5m
+        fi 
       
     - name: Upload openwrt.tar.gzaf to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaf ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |
+        if [ -e /workdir/openwrt.tar.gzaf ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzaf 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5f
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaf ]
-      run: sleep 5m       
+        fi
+    - name: sleep 5f
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzaf ]; then
+        sleep 5m
+        fi      
     - name: Upload openwrt.tar.gzag to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzag ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |
+        if [ -e /workdir/openwrt.tar.gzag ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzag 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5g
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzag ]
-      run: sleep 5m       
+        fi
+    - name: sleep 5g
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzag ]; then
+        sleep 5m
+        fi     
       
     - name: Upload openwrt.tar.gzah to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzah ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |
+        if [ -e /workdir/openwrt.tar.gzah ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzah 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5h
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzah ]
-      run: sleep 5m 
+        fi
+    - name: sleep 5h
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzah ]; then
+        sleep 5m
+        fi
 
     - name: Upload openwrt.tar.gzai to WeTransfer
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzai ]
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |
+        if [ -e /workdir/openwrt.tar.gzai ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzai 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-    - name: WETRANSFER sleep 5i
-      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzab ]
-      run: sleep 5m 
+        fi
+    - name: sleep 5i
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzai ]; then
+        sleep 5m
+        fi
       
     - name: Upload openwrt.tar.gzaj to WeTransfer
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
+        if [ -e /workdir/openwrt.tar.gzaj ]; then
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gzaj 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
-
+        fi
 
     - name: Upload openwrt.tar.gzaa to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaa ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
       run: | 
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaa 2>&1 | tee cowtransfer.log
@@ -227,99 +273,126 @@ jobs:
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
 
     - name: sleep 5a
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaa ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzaa ]; then
+        sleep 5m
+        fi
       
     - name: Upload openwrt.tar.gzab to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzab ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzab 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"  
     - name: sleep 5b
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzab ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzab ]; then
+        sleep 5m
+        fi
              
         
     - name: Upload openwrt.tar.gzac to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzac ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled()
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzac 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
     - name: sleep 5c
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzac ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzac ]; then
+        sleep 5m
+        fi
              
     - name: Upload openwrt.tar.gzad to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzad ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzad 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")" 
     - name: sleep 5d
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzad ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzad ]; then
+        sleep 5m
+        fi
              
     - name: Upload openwrt.tar.gzae to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzae ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
       run: | 
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzae 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")" 
     - name: sleep 5e
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzae ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzae ]; then
+        sleep 5m
+        fi
              
     - name: Upload openwrt.tar.gzaf to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaf ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaf 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"  
     - name: sleep 5f
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaf ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzaf ]; then
+        sleep 5m
+        fi
              
     - name: Upload openwrt.tar.gzag to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzag ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzag 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")" 
     - name: sleep 5g
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzag ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzag ]; then
+        sleep 5m
+        fi
              
     - name: Upload openwrt.tar.gzah to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzah ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled()
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzah 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"  
     - name: sleep 5h
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzah ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzah ]; then
+        sleep 5m
+        fi
              
     - name: Upload openwrt.tar.gzai to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzai ]
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzai 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"  
     - name: sleep 5i
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzai ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzai ]; then
+        sleep 5m
+        fi
              
-    - name: Upload openwrt.tar.gzaj to cowtransfer && [ -e /workdir/openwrt.tar.gzaj ]
+    - name: Upload openwrt.tar.gzaj to cowtransfer 
       if: env.UPLOAD_TAR == 'true' && !cancelled()
       run: |  
         curl -fsSL git.io/file-transfer | sh
@@ -327,8 +400,12 @@ jobs:
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")" 
     - name: sleep 5j
-      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaj ]
-      run: sleep 5m
+      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzaj ]; then
+        sleep 5m
+        fi
+        
              
     - name: Check space usage
       if: (!cancelled())
