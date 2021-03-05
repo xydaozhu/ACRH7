@@ -67,7 +67,6 @@ jobs:
         fi
         if [ -e $GITHUB_WORKSPACE/$KVR ]; then
           echo '查到hostapd.sh;1，mv到openwrt/package/network/services/hostapd/files/hostapd.sh'
-          mv $GITHUB_WORKSPACE/$KVR openwrt/package/network/services/hostapd/files/hostapd.sh;
           
         fi        
         if [ -e hostapd.sh ]; then
