@@ -1,5 +1,5 @@
 # Modify default IP
-# sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Mod zzz-default-settings
 # pushd package/lean/default-settings/files
@@ -41,19 +41,21 @@ git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 
 # Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
+# git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
+git clone https://github.com/Lienol/openwrt-package package/Lienol-package
 
 # Add luci-app-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
 git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
 
 # Add po2lmo
-git clone https://github.com/openwrt-dev/po2lmo.git package/po2lmo
-pushd package/po2lmo
-make && sudo make install
-popd
+# git clone https://github.com/openwrt-dev/po2lmo.git package/po2lmo
+# pushd package/po2lmo
+# make && sudo make install
+# popd
 
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
@@ -67,14 +69,14 @@ svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/ad
 svn co https://github.com/281677160/openwrt-package/trunk/luci-theme-opentopd package/luci-theme-opentopd
 
 # Add luci-app-diskman
-git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman package/luci-app-diskman
-mkdir package/parted
-cp package/luci-app-diskman/Parted.Makefile package/parted/Makefile
+# git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman package/luci-app-diskman
+# mkdir package/parted
+# cp package/luci-app-diskman/Parted.Makefile package/parted/Makefile
 
 # Add luci-app-dockerman
-rm -rf package/lean/luci-app-docker
-git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman package/luci-app-dockerman
-git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
+# rm -rf package/lean/luci-app-docker
+# git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman package/luci-app-dockerman
+# git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
 
 # Add smartdns
 git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
