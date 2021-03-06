@@ -108,11 +108,18 @@ jobs:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
+    - name: add luci-theme
+      id: luci-theme
+      run: |
+        cd openwrt/package
+        git clone https://github.com/jerrykuku/luci-theme-argon.git  
+        
     - name: Download package
       id: package
       run: |
         cd openwrt
         make defconfig
+        sed -i '$a CONFIG_PACKAGE_luci-theme-argon=y' .config
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
