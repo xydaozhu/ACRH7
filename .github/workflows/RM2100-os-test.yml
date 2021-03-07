@@ -63,7 +63,7 @@ jobs:
         git clone https://github.com/coolsnowwolf/lede.git
 
         cp -r lede/package/lean /workdir/openwrt/package/lean
-#        cp -r lede/package/libs/librpc /workdir/openwrt/package/libs
+#        cp -r lede/package/libs /workdir/openwrt/package/libs
 
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Load custom feeds
