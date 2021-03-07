@@ -1,12 +1,13 @@
+# 2021-03-07
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Mod zzz-default-settings
-pushd package/lean/default-settings/files
-sed -i '/http/d' zzz-default-settings
-export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
-sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
-popd
+# pushd package/lean/default-settings/files
+# sed -i '/http/d' zzz-default-settings
+# export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
+# sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
+# popd
 
 # Add luci-app-dnsfilter
 # git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
@@ -41,7 +42,7 @@ git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 
 # Add Lienol's Packages
-# git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
+git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
 git clone https://github.com/Lienol/openwrt-package package/Lienol-package
 
 # Add luci-app-passwall
@@ -66,7 +67,7 @@ svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/ad
 
 
 # Add luci-theme-opentopd
-svn co https://github.com/281677160/openwrt-package/trunk/luci-theme-opentopd package/luci-theme-opentopd
+# svn co https://github.com/281677160/openwrt-package/trunk/luci-theme-opentopd package/luci-theme-opentopd
 
 # Add luci-app-diskman
 # git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman package/luci-app-diskman
@@ -79,7 +80,7 @@ svn co https://github.com/281677160/openwrt-package/trunk/luci-theme-opentopd pa
 # git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
 
 # Add smartdns
-git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+# git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 
 # Use Lienol's https-dns-proxy package
 pushd feeds/packages/net
@@ -88,7 +89,7 @@ svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
 popd
 
 # Add luci-theme-edge
-git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
+# git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
 
 # Fix libssh
 pushd feeds/packages/libs
@@ -116,21 +117,21 @@ chmod +x files/etc/openclash/core/clash*
 
 # preset terminal tools(oh-my-zsh)
 
-mkdir -p files/root
-pushd files/root
+# mkdir -p files/root
+# pushd files/root
 
 ## Install oh-my-zsh
 # Clone oh-my-zsh repository
-git clone https://github.com/robbyrussell/oh-my-zsh ./.oh-my-zsh
+# git clone https://github.com/robbyrussell/oh-my-zsh ./.oh-my-zsh
 
 # Install extra plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ./.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugins/zsh-completions
+# git clone https://github.com/zsh-users/zsh-autosuggestions ./.oh-my-zsh/custom/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugins/zsh-completions
 
 # Get .zshrc dotfile
-cp $GITHUB_WORKSPACE/data/zsh/.zshrc .
-popd
+# cp $GITHUB_WORKSPACE/data/zsh/.zshrc .
+# popd
 
 # Change default shell to zsh
-sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+# sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
