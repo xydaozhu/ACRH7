@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: RM2100-Lean-get-T
+name: acrh17-Lean-get-T7
 
 on:
   repository_dispatch:
