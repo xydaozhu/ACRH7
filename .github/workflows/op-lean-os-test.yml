@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: RM2100-os-test
+name: op-lean-os-test
 
 on:
   repository_dispatch:
@@ -75,7 +75,7 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
 #        mv $GITHUB_WORKSPACE/$FEEDS_CONF openwrt/feeds.conf.default
-        cd openwrt
+#        cd openwrt
     - name: Update feeds
       run: |
         cd openwrt
