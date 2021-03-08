@@ -62,6 +62,7 @@ jobs:
     - name: Update feeds
       run: |    
         cd openwrt
+        sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install libpam
         ./scripts/feeds install liblzma
