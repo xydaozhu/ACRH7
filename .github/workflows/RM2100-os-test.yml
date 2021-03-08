@@ -63,6 +63,7 @@ jobs:
         git clone https://github.com/coolsnowwolf/lede.git
 
         cp -r lede/package/lean /workdir/openwrt/package/lean
+        cp -r lede/package/libs /workdir/openwrt/package/libs
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Load custom feeds
       run: |
@@ -70,7 +71,12 @@ jobs:
         mv $GITHUB_WORKSPACE/$FEEDS_CONF openwrt/feeds.conf.default
         cd openwrt
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: |
+        cd openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install libpam
+        ./scripts/feeds install liblzma
+        ./scripts/feeds install libnetsnmp
       
 #    - name: RM
 #      run: |
