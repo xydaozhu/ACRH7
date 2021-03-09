@@ -25,7 +25,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: RM2100.feeds.lean.conf
-  CONFIG_FILE: acrh17.config
+  CONFIG_FILE: acrh17.lean.config
   DIY_SH: RM2100-lean.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
