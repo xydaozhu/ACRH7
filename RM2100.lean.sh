@@ -1,13 +1,12 @@
-# 2021-03-07
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # Mod zzz-default-settings
-# pushd package/lean/default-settings/files
-# sed -i '/http/d' zzz-default-settings
-# export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
-# sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
-# popd
+pushd package/lean/default-settings/files
+sed -i '/http/d' zzz-default-settings
+export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
+sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
+popd
 
 # Add luci-app-dnsfilter
 # git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
@@ -42,7 +41,7 @@ git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 
 # Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
+# git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
 git clone https://github.com/Lienol/openwrt-package package/Lienol-package
 
 # Add luci-app-passwall
@@ -50,7 +49,7 @@ git clone https://github.com/Lienol/openwrt-package package/Lienol-package
 git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
-git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
+# git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
 
 # Add po2lmo
 # git clone https://github.com/openwrt-dev/po2lmo.git package/po2lmo
@@ -80,7 +79,7 @@ git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman package/luc
 git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
 
 # Add smartdns
-# git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 
 # Use Lienol's https-dns-proxy package
 pushd feeds/packages/net
@@ -105,14 +104,14 @@ popd
 
 
 # preset cores for openclash
-mkdir -p files/etc/openclash/core
-open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-clash_tun_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-clash_game_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-wget -qO- $open_clash_main_url | tar xOvz > files/etc/openclash/core/clash
-wget -qO- $clash_tun_url | gunzip -c > files/etc/openclash/core/clash_tun
-wget -qO- $clash_game_url | tar xOvz > files/etc/openclash/core/clash_game
-chmod +x files/etc/openclash/core/clash*
+# mkdir -p files/etc/openclash/core
+# open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+# clash_tun_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+# clash_game_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+# wget -qO- $open_clash_main_url | tar xOvz > files/etc/openclash/core/clash
+# wget -qO- $clash_tun_url | gunzip -c > files/etc/openclash/core/clash_tun
+# wget -qO- $clash_game_url | tar xOvz > files/etc/openclash/core/clash_game
+# chmod +x files/etc/openclash/core/clash*
 
 
 # preset terminal tools(oh-my-zsh)
