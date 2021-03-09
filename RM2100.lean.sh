@@ -49,7 +49,7 @@ git clone https://github.com/Lienol/openwrt-package package/Lienol-package
 git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
-# git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
+git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
 
 # Add po2lmo
 # git clone https://github.com/openwrt-dev/po2lmo.git package/po2lmo
@@ -104,14 +104,14 @@ popd
 
 
 # preset cores for openclash
-# mkdir -p files/etc/openclash/core
-# open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-# clash_tun_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-# clash_game_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-# wget -qO- $open_clash_main_url | tar xOvz > files/etc/openclash/core/clash
-# wget -qO- $clash_tun_url | gunzip -c > files/etc/openclash/core/clash_tun
-# wget -qO- $clash_game_url | tar xOvz > files/etc/openclash/core/clash_game
-# chmod +x files/etc/openclash/core/clash*
+mkdir -p files/etc/openclash/core
+open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+clash_tun_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+clash_game_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+wget -qO- $open_clash_main_url | tar xOvz > files/etc/openclash/core/clash
+wget -qO- $clash_tun_url | gunzip -c > files/etc/openclash/core/clash_tun
+wget -qO- $clash_game_url | tar xOvz > files/etc/openclash/core/clash_game
+chmod +x files/etc/openclash/core/clash*
 
 
 # preset terminal tools(oh-my-zsh)
