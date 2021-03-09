@@ -33,15 +33,15 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 # 为lean源补充v2包
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
-git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
+# git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
-rm -rf package/lean/luci-theme-argon
-rm -rf package/lean/luci-app-jd-dailybonus
-git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
-git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
-git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
+# rm -rf package/lean/luci-theme-argon
+# rm -rf package/lean/luci-app-jd-dailybonus
+# git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
+# git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
+# git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
+# git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 
 # Add Lienol's Packages
 # git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
@@ -49,7 +49,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jer
 
 # Add luci-app-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
-git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+# git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
 # git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
@@ -61,15 +61,15 @@ git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwal
 # popd
 
 # Add ServerChan
-git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
+# git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 
 # Add luci-app-adguardhome
-git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/adguardhome
+# git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+# svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/adguardhome
 
 
 # Add luci-theme-opentopd
-svn co https://github.com/281677160/openwrt-package/trunk/luci-theme-opentopd package/luci-theme-opentopd
+# svn co https://github.com/281677160/openwrt-package/trunk/luci-theme-opentopd package/luci-theme-opentopd
 
 # Add luci-app-diskman
 # git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman package/luci-app-diskman
@@ -82,13 +82,13 @@ svn co https://github.com/281677160/openwrt-package/trunk/luci-theme-opentopd pa
 # git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
 
 # Add smartdns
-git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+# git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 
 # Use Lienol's https-dns-proxy package
-pushd feeds/packages/net
-rm -rf https-dns-proxy
-svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
-popd
+# pushd feeds/packages/net
+# rm -rf https-dns-proxy
+# svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
+# popd
 
 # Add luci-theme-edge
 # git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
