@@ -1,4 +1,5 @@
 #
+#
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
 #
 # This is free software, licensed under the MIT License.
@@ -8,7 +9,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: RM2100-openwrt-lean-T
+name: RM2100-Lean-get-T
 
 on:
   repository_dispatch:
@@ -66,6 +67,7 @@ jobs:
         [ -e files ] && mv files openwrt/files
         mv $GITHUB_WORKSPACE/$FEEDS_CONF openwrt/feeds.conf.default
         cd openwrt
+        sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
       
@@ -85,11 +87,9 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         mv $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config
-        echo "move .config ok"
         chmod +x $DIY_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_SH
-        echo "run RM2100-openwrt-lean.sh ok"
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
