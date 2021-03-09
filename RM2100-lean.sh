@@ -75,9 +75,9 @@ svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/ad
 # cp package/luci-app-diskman/Parted.Makefile package/parted/Makefile
 
 # Add luci-app-dockerman
-# rm -rf package/lean/luci-app-docker
-# git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman package/luci-app-dockerman
-# git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
+rm -rf package/lean/luci-app-docker
+git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman package/luci-app-dockerman
+git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
 
 # Add smartdns
 # git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
