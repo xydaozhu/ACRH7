@@ -4,7 +4,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # Mod zzz-default-settings
 # pushd package/lean/default-settings/files
 # sed -i '/http/d' zzz-default-settings
-#export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
+# export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
 # sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
 # popd
 
@@ -15,7 +15,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
 # Add luci-app-bypass
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+# sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 git clone https://github.com/coolsnowwolf/lede.git
 cp -r lede/package/lean ~/openwrt/package/lean
@@ -35,13 +35,13 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
 git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
-rm -rf package/lean/luci-theme-argon
-rm -rf package/lean/luci-app-jd-dailybonus
-git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
-git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
+# rm -rf package/lean/luci-theme-argon
+# rm -rf package/lean/luci-app-jd-dailybonus
+# git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
+# git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
+# git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
 # git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 
 # Add Lienol's Packages
 # git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
@@ -49,7 +49,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jer
 
 # Add luci-app-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
-git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+# git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
 # git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
@@ -64,8 +64,8 @@ git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwal
 # git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 
 # Add luci-app-adguardhome
-git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/adguardhome
+# git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+# svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/adguardhome
 
 
 # Add luci-theme-opentopd
