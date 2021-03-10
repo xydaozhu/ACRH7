@@ -9,10 +9,10 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # popd
 
 # Add luci-app-dnsfilter
-# git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
+git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add luci-app-godproxy
-# git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
+git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
@@ -33,15 +33,15 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 # 为lean源补充v2包
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
-# git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
-# Add Jerrykuku's packages(vssr/jd-daily/argon theme)
-# rm -rf package/lean/luci-theme-argon
-# rm -rf package/lean/luci-app-jd-dailybonus
-# git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
-# git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
-# git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
-# git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
-# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
+git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
+Add Jerrykuku's packages(vssr/jd-daily/argon theme)
+rm -rf package/lean/luci-theme-argon
+rm -rf package/lean/luci-app-jd-dailybonus
+git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
+git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
+git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 
 # Add Lienol's Packages
 # git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
@@ -52,7 +52,7 @@ svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray packa
 # git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
-# git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
+git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
 
 # Add po2lmo
 # git clone https://github.com/openwrt-dev/po2lmo.git package/po2lmo
@@ -61,11 +61,11 @@ svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray packa
 # popd
 
 # Add ServerChan
-# git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
+git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 
 # Add luci-app-adguardhome
-# git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-# svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/adguardhome
+git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/adguardhome
 
 
 # Add luci-theme-opentopd
@@ -77,18 +77,18 @@ svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray packa
 # cp package/luci-app-diskman/Parted.Makefile package/parted/Makefile
 
 # Add luci-app-dockerman
-# rm -rf package/lean/luci-app-docker
-# git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman package/luci-app-dockerman
-# git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
+rm -rf package/lean/luci-app-docker
+git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman package/luci-app-dockerman
+git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
 
 # Add smartdns
-# git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 
 # Use Lienol's https-dns-proxy package
-# pushd feeds/packages/net
-# rm -rf https-dns-proxy
-# svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
-# popd
+pushd feeds/packages/net
+rm -rf https-dns-proxy
+svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
+popd
 
 # Add luci-theme-edge
 # git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
@@ -107,14 +107,14 @@ svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray packa
 
 
 # preset cores for openclash
-# mkdir -p files/etc/openclash/core
-# open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-# clash_tun_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-# clash_game_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
-# wget -qO- $open_clash_main_url | tar xOvz > files/etc/openclash/core/clash
-# wget -qO- $clash_tun_url | gunzip -c > files/etc/openclash/core/clash_tun
-# wget -qO- $clash_game_url | tar xOvz > files/etc/openclash/core/clash_game
-# chmod +x files/etc/openclash/core/clash*
+mkdir -p files/etc/openclash/core
+open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+clash_tun_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+clash_game_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
+wget -qO- $open_clash_main_url | tar xOvz > files/etc/openclash/core/clash
+wget -qO- $clash_tun_url | gunzip -c > files/etc/openclash/core/clash_tun
+wget -qO- $clash_game_url | tar xOvz > files/etc/openclash/core/clash_game
+chmod +x files/etc/openclash/core/clash*
 
 
 # preset terminal tools(oh-my-zsh)
