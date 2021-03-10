@@ -9,10 +9,10 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # popd
 
 # Add luci-app-dnsfilter
-# git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
+git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add luci-app-godproxy
-# git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
+git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
@@ -34,14 +34,14 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 # 为lean源补充v2包
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
 git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
-# Add Jerrykuku's packages(vssr/jd-daily/argon theme)
-# rm -rf package/lean/luci-theme-argon
-# rm -rf package/lean/luci-app-jd-dailybonus
-# git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
-# git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
-# git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
-# git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
-# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
+Add Jerrykuku's packages(vssr/jd-daily/argon theme)
+rm -rf package/lean/luci-theme-argon
+rm -rf package/lean/luci-app-jd-dailybonus
+git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
+git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
+git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 
 # Add Lienol's Packages
 # git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
@@ -82,7 +82,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-pas
 # git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/lisaac/luci-lib-docker
 
 # Add smartdns
-# git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 
 # Use Lienol's https-dns-proxy package
 # pushd feeds/packages/net
