@@ -68,10 +68,14 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_SH
-        sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
+#        sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
-      
+      run: |
+        cd openwrt 
+        ./scripts/feeds update -a
+        ./scripts/feeds install libpam
+        ./scripts/feeds install liblzma
+        ./scripts/feeds install libnetsnmp      
 #    - name: RM
 #      run: |
 #           cd openwrt 
