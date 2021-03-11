@@ -9,10 +9,10 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # popd
 
 # Add luci-app-dnsfilter
-git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
+# git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add luci-app-godproxy
-git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
+# git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
@@ -25,7 +25,7 @@ cp -r lede/package/lean ~/openwrt/package/lean
 # sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
-git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
+# git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
@@ -34,7 +34,7 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 # 为lean源补充v2包
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
 git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
-Add Jerrykuku's packages(vssr/jd-daily/argon theme)
+# Add Jerrykuku's packages(vssr/jd-daily/argon theme)
 rm -rf package/lean/luci-theme-argon
 rm -rf package/lean/luci-app-jd-dailybonus
 git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
@@ -51,7 +51,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jer
 # git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
-git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
+# git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
 
 # Add po2lmo
 # git clone https://github.com/openwrt-dev/po2lmo.git package/po2lmo
