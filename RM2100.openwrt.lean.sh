@@ -32,8 +32,8 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 
 # 为lean源补充v2包
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
-git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
+# svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
+# git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
 # rm -rf package/lean/luci-theme-argon
 # rm -rf package/lean/luci-app-jd-dailybonus
