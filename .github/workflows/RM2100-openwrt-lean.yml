@@ -68,14 +68,10 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_SH
-#        sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
+        sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
     - name: Update feeds
-      run: |
-        cd openwrt 
-        ./scripts/feeds update -a
-        ./scripts/feeds install libpam
-        ./scripts/feeds install liblzma
-        ./scripts/feeds install libnetsnmp      
+      run: cd openwrt && ./scripts/feeds update -a
+      
 #    - name: RM
 #      run: |
 #           cd openwrt 
@@ -92,7 +88,6 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         mv $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config
-
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
