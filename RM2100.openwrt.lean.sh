@@ -17,15 +17,19 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-#git clone https://github.com/coolsnowwolf/lede.git
-#cp -r /workdir/openwrt/lede/package/lean /workdir/openwrt/package/lean
+git clone https://github.com/coolsnowwolf/lede.git
+cp -r lede/package/lean/adbyby  ~/openwrt/package/lean/adbyby
+cp -r lede/package/lean/vlmcsd  ~/openwrt/package/lean/vlmcsd
+cp -r lede/package/lean/uci-app-vlmcsd  ~/openwrt/package/lean/uci-app-vlmcsd
+cp -r lede/package/lean/luci-app-adbyby-plus ~/openwrt/package/lean/luci-app-adbyby-plus
+ls ~/openwrt/package/lean/ -l
 
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
-# git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
+#git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
@@ -33,7 +37,7 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 # 为lean源补充v2包
 #svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
-#git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
+# git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
 # rm -rf package/lean/luci-theme-argon
 # rm -rf package/lean/luci-app-jd-dailybonus
@@ -42,6 +46,7 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 # git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
 # git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
+
 # Add Lienol's Packages
 # git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
 # git clone https://github.com/Lienol/openwrt-package package/Lienol-package
