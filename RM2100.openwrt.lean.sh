@@ -17,8 +17,8 @@
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-# git clone https://github.com/coolsnowwolf/lede.git
-# cp -r /workdir/openwrt/lede/package/lean /workdir/openwrt/package/lean
+git clone https://github.com/coolsnowwolf/lede.git
+cp -r /workdir/openwrt/lede/package/lean /workdir/openwrt/package/lean
 
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
@@ -32,8 +32,8 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 
 
 # 为lean源补充v2包
-# svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
-# git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
+#svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
+git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
 # rm -rf package/lean/luci-theme-argon
 # rm -rf package/lean/luci-app-jd-dailybonus
