@@ -28,6 +28,7 @@ env:
   CONFIG_FILE: RM2100.openwrt.lean.config
   DIY_SH: RM2100.openwrt.lean.sh
   KVR: hostapd.sh
+  KM: 102-mt7621-fix-cpu-clk-add-clkdev(1000M).patch
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
@@ -100,10 +101,14 @@ jobs:
         
         if [ -e '/usr/bin/upx' ]; then
         echo '查到/usr/bin/upx，复制到/workdir/openwrt/staging_dir/host/bin/upx'
-        cp /usr/bin/upx /workdir/openwrt/staging_dir/host/bin/upx
+        cp /usr/bin/upx /workdir/openwrt/staging_dir/host/bin/upx;
           
         fi
-        
+        if [ -e '102-mt7621-fix-cpu-clk-add-clkdev(1000M).patch' ]; then
+        echo '查到102-mt7621-fix-cpu-clk-add-clkdev(1000M).patch，复制到/workdir/openwrt/target/linux/amips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
+        cp -f $KM /workdir/openwrt/target/linux/amips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;
+          
+        fi        
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
