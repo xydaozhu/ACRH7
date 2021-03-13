@@ -17,13 +17,13 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-git clone https://github.com/coolsnowwolf/lede.git
-mkdir /workdir/openwrt/package/lean
-cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
-cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
-cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
-cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-app-adbyby-plus
-ls /workdir/openwrt/package/lean/ -l
+# git clone https://github.com/coolsnowwolf/lede.git
+# mkdir /workdir/openwrt/package/lean
+# cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
+# cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
+# cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
+# cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-app-adbyby-plus
+# ls /workdir/openwrt/package/lean/ -l
 
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
