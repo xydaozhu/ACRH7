@@ -28,7 +28,7 @@ env:
   CONFIG_FILE: RM2100.openwrt.lean.config
   DIY_SH: RM2100.openwrt.lean.sh
   KVR: hostapd.sh
-  KM: 102-mt7621-fix-cpu-clk-add-clkdev(1000M).patch
+  KM: 102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
@@ -104,8 +104,8 @@ jobs:
         cp /usr/bin/upx /workdir/openwrt/staging_dir/host/bin/upx;
           
         fi
-        if [ -e '102-mt7621-fix-cpu-clk-add-clkdev(1000M).patch' ]; then
-        echo '查到102-mt7621-fix-cpu-clk-add-clkdev(1000M).patch，复制到/workdir/openwrt/target/linux/amips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
+        if [ -e '102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch' ]; then
+        echo '查到102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch，复制到/workdir/openwrt/target/linux/amips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
         cp -f $KM /workdir/openwrt/target/linux/amips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;
           
         fi        
