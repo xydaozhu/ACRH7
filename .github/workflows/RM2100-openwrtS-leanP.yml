@@ -64,9 +64,8 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        ls /workdir/openwrt/target/linux/ramips/ -l
-        whereis 102-mt7621-fix-cpu-clk-add-clkdev.patch
-        ls 
+        ls /workdir/openwrt/target/linux/ramips  -l
+
     - name: Load custom feeds
       run: |
         [ -e files ] && mv files openwrt/files
@@ -108,7 +107,7 @@ jobs:
         cp /usr/bin/upx /workdir/openwrt/staging_dir/host/bin/upx;
           
         fi
-        if [ -e '102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch' ]; then 
+        if [ -e $KM ]; then 
         echo '查到102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch，复制到/workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
         cp -f $KM /workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;
           
