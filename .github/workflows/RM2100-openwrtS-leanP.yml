@@ -136,7 +136,7 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
     - name: tar
       id: tar
-#      if: env.UPLOAD_TAR == 'true' && !cancelled()
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz 
