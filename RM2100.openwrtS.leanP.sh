@@ -26,7 +26,7 @@ cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-
 cp -r lede/package/lean/luci-app-sfe  /workdir/openwrt/package/lean/luci-app-sfe
 cp -r lede/package/lean/luci-theme-argon /workdir/openwrt/package/lean/luci-theme-argon
 cp -r lede/package/lean/luci-theme-netgear /workdir/openwrt/package/lean/luci-theme-netgear
-git clone https://github.com/Lienol/openwrt-package
+git clone https://github.com/kenzok8/openwrt-packages
 cp -r openwrt-packages/luci-app-ssr-plus /workdir/openwrt/package/lean/luci-app-ssr-plus
 cp -r openwrt-packages/luci-app-passwall /workdir/openwrt/package/lean/luci-app-passwall
 ls /workdir/openwrt/package/lean/ -l
