@@ -127,6 +127,12 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+    - name: tar before compile
+      id: tar
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
+      run: |
+        cd /workdir
+        tar czf - openwrt | split -b 1000m - openwrt.tar.gz        
 
     - name: Compile the firmware
       id: compile
@@ -143,7 +149,18 @@ jobs:
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         cd /workdir
-        tar czf - openwrt/bin/target | split -b 1000m - openwrt.tar.gz 
+        tar czf - openwrt/bin/target | split -b 1000m - target.tar.gz 
+        
+    - name: Upload target to WeTransfer
+      if:  cancelled() == 'false'
+      run: |
+        if [ -e /workdir/target.tar.gz ]; then
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer wet -s -p 16 --no-progress /workdir/target.tar.gz 2>&1 | tee wetransfer.log
+        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
+        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")" 
+        fi
+        
     - name: Upload openwrt.tar.gzaa to WeTransfer
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
