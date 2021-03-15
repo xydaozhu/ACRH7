@@ -128,7 +128,7 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
     - name: tar before compile
-      id: tar
+      id: tar_before_compile
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
         cd /workdir
