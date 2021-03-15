@@ -24,6 +24,11 @@ cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
 cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
 cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-app-adbyby-plus
 cp -r lede/package/lean/luci-app-sfe  /workdir/openwrt/package/lean/luci-app-sfe
+cp -r lede/package/lean/luci-app-ipsec-vpnd /workdir/openwrt/package/lean/luci-app-ipsec-vpnd
+cp -r lede/package/lean/UnblockNeteaseMusic /workdir/openwrt/package/lean/UnblockNeteaseMusic
+cp -r lede/package/lean/UnblockNeteaseMusicGo /workdir/openwrt/package/lean/UnblockNeteaseMusicGo
+cp -r lede/package/lean/uugamebooster /workdir/openwrt/package/lean/uugamebooster
+cp -r lede/package/lean/luci-app-zerotier /workdir/openwrt/package/lean/luci-app-zerotier
 cp -r lede/package/lean/luci-theme-argon /workdir/openwrt/package/lean/luci-theme-argon
 cp -r lede/package/lean/luci-theme-netgear /workdir/openwrt/package/lean/luci-theme-netgear
 # git clone https://github.com/kenzok8/openwrt-packages
