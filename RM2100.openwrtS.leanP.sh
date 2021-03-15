@@ -28,7 +28,7 @@ cp -r lede/package/lean/luci-app-ipsec-vpnd /workdir/openwrt/package/lean/luci-a
 cp -r lede/package/lean/UnblockNeteaseMusic /workdir/openwrt/package/lean/UnblockNeteaseMusic
 cp -r lede/package/lean/UnblockNeteaseMusicGo /workdir/openwrt/package/lean/UnblockNeteaseMusicGo
 cp -r lede/package/lean/uugamebooster /workdir/openwrt/package/lean/uugamebooster
-cp -r lede/package/lean/luci-app-zerotier /workdir/openwrt/package/lean/luci-app-zerotier
+# cp -r lede/package/lean/luci-app-zerotier /workdir/openwrt/package/lean/luci-app-zerotier
 cp -r lede/package/lean/luci-theme-argon /workdir/openwrt/package/lean/luci-theme-argon
 cp -r lede/package/lean/luci-theme-netgear /workdir/openwrt/package/lean/luci-theme-netgear
 # git clone https://github.com/kenzok8/openwrt-packages
