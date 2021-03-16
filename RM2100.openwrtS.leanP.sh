@@ -20,6 +20,8 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 git clone https://github.com/coolsnowwolf/lede.git
 mkdir /workdir/openwrt/package/lean
 cp -r lede/package/lean  /workdir/openwrt/package/lean
+rm -r /workdir/openwrt/package/lean/luci-app-sfe
+git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
 # cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
 # cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
