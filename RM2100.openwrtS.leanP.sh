@@ -34,7 +34,7 @@ cp -r lede/package/lean/luci-theme-netgear /workdir/openwrt/package/lean/luci-th
 # git clone https://github.com/kenzok8/openwrt-packages
 # cp -r openwrt-packages/luci-app-ssr-plus /workdir/openwrt/package/lean/luci-app-ssr-plus
 # cp -r openwrt-packages/luci-app-passwall /workdir/openwrt/package/lean/luci-app-passwall
-# ls /workdir/openwrt/package/lean/ -l
+ls /workdir/openwrt/package/lean/ -l
 
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
