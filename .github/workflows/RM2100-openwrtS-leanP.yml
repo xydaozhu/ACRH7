@@ -153,7 +153,7 @@ jobs:
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz  
 
     - name: tar target
-      id: tar target
+      id: tar_target
       if: cancelled() == 'false'
       run: |
         cd /workdir
