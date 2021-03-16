@@ -155,13 +155,11 @@ jobs:
 
     - name: tar target
       id: tar_target
-      if: cancelled() == 'false'
       run: |
         cd /workdir
         tar czf - openwrt/bin/target | split -b 1000m - target.tar.gz 
         
     - name: Upload target to WeTransfer
-      if:  cancelled() == 'false'
       run: |
         if [ -e /workdir/target.tar.gz ]; then
         curl -fsSL git.io/file-transfer | sh
