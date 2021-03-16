@@ -25,7 +25,8 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: master
 #  REPO_BRANCH: openwrt-19.07
-  FEEDS_CONF: RM2100.feeds.lean.conf
+#  FEEDS_CONF: RM2100.feeds.lean.conf
+  FEEDS_CONF: RM2100.feeds.openwrt.lean.conf
   CONFIG_FILE: RM2100.openwrtS.leanP.config
   DIY_SH: RM2100.openwrtS.leanP.sh
   KVR: hostapd.sh
