@@ -55,10 +55,10 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 # git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
 # rm -rf package/lean/luci-theme-argon
-# rm -rf package/lean/luci-app-jd-dailybonus
-# git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
-# git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
-# git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
+rm -rf package/lean/luci-app-jd-dailybonus
+git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
+git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/jerrykuku/luci-app-jd-dailybonus
 # git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 
