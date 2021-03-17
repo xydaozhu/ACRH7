@@ -110,7 +110,7 @@ jobs:
           
         fi
         if [ -e $KM ]; then 
-        echo '查到102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch，复制到/workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
+        echo '查到 $KM，复制到/workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
         cp -f $KM /workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;
           
         fi        
