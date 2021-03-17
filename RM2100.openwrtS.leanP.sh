@@ -56,11 +56,11 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 # git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
 # rm -rf package/lean/luci-theme-argon
-rm -rf package/lean/luci-app-jd-dailybonus
-git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
-git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
+# rm -rf package/lean/luci-app-jd-dailybonus
+# git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
+# git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
 # git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/lean/luci-app-jd-dailybonus
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean/luci-app-jd-dailybonus
+# git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean/luci-app-jd-dailybonus
 # git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 ls /workdir/openwrt/package/lean/ -l
@@ -70,7 +70,7 @@ ls /workdir/openwrt/package/lean/ -l
 # git clone https://github.com/Lienol/openwrt-package package/Lienol-package
 
 # Add luci-app-passwall
-# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 # git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
@@ -83,7 +83,7 @@ ls /workdir/openwrt/package/lean/ -l
 # popd
 
 # Add ServerChan
-# git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
+git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 
 # Add luci-app-adguardhome
 # git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
