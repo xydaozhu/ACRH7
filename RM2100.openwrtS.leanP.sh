@@ -20,7 +20,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 git clone https://github.com/coolsnowwolf/lede.git
 mkdir /workdir/openwrt/package/lean
 cp -r lede/package/lean  /workdir/openwrt/package/
-rm -r /workdir/openwrt/package/lean/luci-app-sfe
+# rm -r /workdir/openwrt/package/lean/luci-app-sfe
 git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
 cp package/lean/Openwrt-sfe-flowoffload-linux-5.4/*.patch  target/linux/generic/hack-5.4/
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
@@ -55,14 +55,14 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 #svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
 # git clone https://github.com/xiaorouji/openwrt-passwall package/lean/openwrt-passwall
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
-# rm -rf package/lean/luci-theme-argon
-# rm -rf package/lean/luci-app-jd-dailybonus
-# git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
-# git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
-# git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/lean/luci-app-jd-dailybonus
+rm -rf package/lean/luci-theme-argon
+rm -rf package/lean/luci-app-jd-dailybonus
+git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
+git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/lean/luci-app-jd-dailybonus
 # git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean/luci-app-jd-dailybonus
-# git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
-# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 ls /workdir/openwrt/package/lean/ -l
 
 # Add Lienol's Packages
