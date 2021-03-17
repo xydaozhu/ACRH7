@@ -19,7 +19,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 
 git clone https://github.com/coolsnowwolf/lede.git
 mkdir /workdir/openwrt/package/lean
-cp -r lede/package/lean  /workdir/openwrt/package/lean
+cp -r lede/package/lean  /workdir/openwrt/package/
 rm -r /workdir/openwrt/package/lean/luci-app-sfe
 git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
@@ -37,7 +37,7 @@ git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  pac
 # git clone https://github.com/kenzok8/openwrt-packages
 # cp -r openwrt-packages/luci-app-ssr-plus /workdir/openwrt/package/lean/luci-app-ssr-plus
 # cp -r openwrt-packages/luci-app-passwall /workdir/openwrt/package/lean/luci-app-passwall
-ls /workdir/openwrt/package/lean/ -l
+# ls /workdir/openwrt/package/lean/ -l
 
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
@@ -62,6 +62,7 @@ git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/l
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean/luci-app-jd-dailybonus
 # git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
+ls /workdir/openwrt/package/lean/ -l
 
 # Add Lienol's Packages
 # git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
