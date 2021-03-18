@@ -1,3 +1,39 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@xydaozhu 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+xydaozhu
+/
+ACRH7
+generated from P3TERX/Actions-OpenWrt
+1
+10
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+ACRH7/RM2100.openwrtS.leanP.sh
+@xydaozhu
+xydaozhu Update RM2100.openwrtS.leanP.sh
+Latest commit f91b403 31 minutes ago
+ History
+ 1 contributor
+161 lines (127 sloc)  7.75 KB
+  
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
@@ -23,6 +59,7 @@ cp -r lede/package/lean  /workdir/openwrt/package/
 rm -r /workdir/openwrt/package/lean/luci-app-sfe
 git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
 cp package/lean/Openwrt-sfe-flowoffload-linux-5.4/*.patch  target/linux/generic/hack-5.4/
+cp -r package/lean/Openwrt-sfe-flowoffload-linux-5.4/shortcut-fe package/kernel/
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
 # cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
 # cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
