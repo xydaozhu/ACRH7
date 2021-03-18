@@ -25,6 +25,7 @@ git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  pac
 cp package/lean/Openwrt-sfe-flowoffload-linux-5.4/*.patch  target/linux/generic/hack-5.4/
 cp -r package/lean/Openwrt-sfe-flowoffload-linux-5.4/shortcut-fe package/kernel/
 rm -r package/lean/Openwrt-sfe-flowoffload-linux-5.4
+rm -r package/lean/shortcut-fe
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
 # cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
 # cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
