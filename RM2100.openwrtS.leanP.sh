@@ -1,39 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@xydaozhu 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-xydaozhu
-/
-ACRH7
-generated from P3TERX/Actions-OpenWrt
-1
-10
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-ACRH7/RM2100.openwrtS.leanP.sh
-@xydaozhu
-xydaozhu Update RM2100.openwrtS.leanP.sh
-Latest commit f91b403 31 minutes ago
- History
- 1 contributor
-161 lines (127 sloc)  7.75 KB
-  
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
