@@ -31,6 +31,7 @@ env:
   DIY_SH: RM2100.openwrtS.leanP.sh
   KVR: hostapd.sh
   KM: 102-mt7621-fix-cpu-clk-add-clkdev-1100M.patch
+  UTC-NTP: config_generate
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -72,6 +73,13 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         mv $GITHUB_WORKSPACE/$FEEDS_CONF openwrt/feeds.conf.default
+        if [ -e $UTC-NTP ]; then 
+        echo -n '查到修改好时区和NTP地址的: '
+        echo -n "$UTC-NTP"
+        echo '  复制到/workdir/openwrt/package/base-files/files/bin/config_generate'
+        cp -f $UTC-NTP /workdir/openwrt/package/base-files/files/bin/config_generate;
+          
+        fi          
         chmod +x $DIY_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_SH
