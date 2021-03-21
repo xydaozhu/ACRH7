@@ -35,7 +35,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   TAR_BEFORE: false
-  TAR_AFTER: true
+  TAR_AFTER: false
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
