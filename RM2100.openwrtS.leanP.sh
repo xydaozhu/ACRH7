@@ -1,6 +1,11 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
+sed -i 's/0.openwrt.pool.ntp.org/ntp1.aliyun.com/g' package/base-files/files/bin/config_generate
+sed -i 's/1.openwrt.pool.ntp.org/ntp2.aliyun.com/g' package/base-files/files/bin/config_generate
+sed -i 's/2.openwrt.pool.ntp.org/ntp3.aliyun.com/g' package/base-files/files/bin/config_generate
+sed -i 's#UTC#Asia/Shanghai#g' package/base-files/files/bin/config_generate
+
 # Mod zzz-default-settings
 # pushd package/lean/default-settings/files
 # sed -i '/http/d' zzz-default-settings
