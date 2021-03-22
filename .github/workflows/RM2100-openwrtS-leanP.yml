@@ -30,13 +30,13 @@ env:
   CONFIG_FILE: RM2100.openwrtS.leanP.config
   DIY_SH: RM2100.openwrtS.leanP.sh
   KVR: hostapd.sh
-  KM: 102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch
+  KM: 102-mt7621-fix-cpu-clk-add-clkdev-1100M.patch
   UTC_NTP: config_generate
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
-  TAR_BEFORE: true
-  TAR_AFTER: false
+  TAR_BEFORE: false
+  TAR_AFTER: true
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
