@@ -85,7 +85,7 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwr
 # pushd package/po2lmo
 # make && sudo make install
 # popd
-
+git clone https://github.com/CPqD/openflow-openwrt package/openflow-openwrt
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 
