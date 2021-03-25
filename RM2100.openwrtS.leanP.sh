@@ -87,8 +87,8 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwr
 # popd
 
 # 测试交换机
-sudo apt-get -y install build-essential binutils flex bison autoconf gettext texinfo sharutils subversion libncurses5-dev ncurses-term gawk zlib1g-dev libssl-dev mercurial
-git clone https://github.com/CPqD/openflow-openwrt package/openflow-openwrt
+# sudo apt-get -y install build-essential binutils flex bison autoconf gettext texinfo sharutils subversion libncurses5-dev ncurses-term gawk zlib1g-dev libssl-dev mercurial
+# git clone https://github.com/CPqD/openflow-openwrt package/openflow-openwrt
 
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
