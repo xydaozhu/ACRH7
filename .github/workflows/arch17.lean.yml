@@ -26,7 +26,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: RM2100.feeds.lean.conf
   CONFIG_FILE: acrh17.lean.config
-  DIY_SH: RM2100.lean.sh
+  DIY_SH: acrh17.lean.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
