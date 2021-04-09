@@ -104,13 +104,7 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
         
-    - name: tar
-      id: tar
-#      if: env.UPLOAD_TAR == 'true' && !cancelled()
-      run: |
-        cd /workdir
-        tar czf - openwrt | split -b 1000m - openwrt.tar.gz 
-                
+
     - name: Compile the firmware
       id: compile
       run: |
@@ -121,7 +115,13 @@ jobs:
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
-
+    - name: tar
+      id: tar
+#      if: env.UPLOAD_TAR == 'true' && !cancelled()
+      run: |
+        cd /workdir
+        tar czf - openwrt | split -b 1000m - openwrt.tar.gz 
+                
     - name: Upload openwrt.tar.gzaa to WeTransfer
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
