@@ -16,10 +16,17 @@
 
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+
 git clone https://github.com/coolsnowwolf/lede.git
 mkdir /workdir/openwrt/package/lean
-cp -r lede/package/lean  /workdir/openwrt/package/lean
-
+cp -r lede/package/lean  /workdir/openwrt/package/
+# rm -r /workdir/openwrt/package/lean/luci-app-sfe
+git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
+cp package/lean/Openwrt-sfe-flowoffload-linux-5.4/*.patch  target/linux/generic/hack-5.4/
+cp -r package/lean/Openwrt-sfe-flowoffload-linux-5.4/shortcut-fe package/kernel/
+rm -r package/lean/Openwrt-sfe-flowoffload-linux-5.4
+rm -r package/lean/shortcut-fe
+rm -r package/lean/fast-classifier
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
 # cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
 # cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
@@ -43,8 +50,8 @@ cp -r lede/package/lean  /workdir/openwrt/package/lean
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
 #git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-# find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-# find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
+find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
+find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
 
 
@@ -60,14 +67,14 @@ cp -r lede/package/lean  /workdir/openwrt/package/lean
 # git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/lean/luci-app-jd-dailybonus
 # git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
-# ls /workdir/openwrt/package/lean/ -l
+ls /workdir/openwrt/package/lean/ -l
 
 # Add Lienol's Packages
 # git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
 # git clone https://github.com/Lienol/openwrt-package package/Lienol-package
 
 # Add luci-app-passwall
-# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 # git clone  https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash.
@@ -78,10 +85,6 @@ cp -r lede/package/lean  /workdir/openwrt/package/lean
 # pushd package/po2lmo
 # make && sudo make install
 # popd
-
-# 测试交换机
-# sudo apt-get -y install build-essential binutils flex bison autoconf gettext texinfo sharutils subversion libncurses5-dev ncurses-term gawk zlib1g-dev libssl-dev mercurial
-# git clone https://github.com/CPqD/openflow-openwrt package/openflow-openwrt
 
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
