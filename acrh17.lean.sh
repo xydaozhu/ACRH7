@@ -16,6 +16,9 @@
 
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+git clone https://github.com/coolsnowwolf/lede.git
+mkdir /workdir/openwrt/package/lean
+cp -r lede/package/lean  /workdir/openwrt/package/lean
 
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
 # cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
