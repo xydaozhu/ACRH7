@@ -15,3 +15,4 @@
 # 
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
+git clone https://github.com/fw876/helloworld.git package/lean/luci-app-ssr-plus
