@@ -113,7 +113,7 @@ jobs:
       id: tar
       run: |
         cd /workdir
-        tar czf - openwrt | split -b 1800m - openwrt.tar.gz
+#         tar czf - openwrt | split -b 1800m - openwrt.tar.gz
         
     - name: Check space usage
       if: (!cancelled())
