@@ -25,7 +25,7 @@ env:
 #   FEEDS_CONF: feeds.conf.default
   FEEDS_CONF: feeds.lean.conf.default
   CONFIG_FILE: .config
-  TAR_only: true
+  TAR_only: false
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -116,6 +116,7 @@ jobs:
 
     - name: tar
       id: tar
+      if: env.TAR_only == 'true'
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz
@@ -158,6 +159,7 @@ jobs:
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
         
     - name: Upload openwrt.tar.gzaa to cowtransfer
+      if: env.TAR_only == 'true'
       run: | 
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaa 2>&1 | tee cowtransfer.log
@@ -165,6 +167,7 @@ jobs:
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
         
     - name: Upload openwrt.tar.gzab to cowtransfer
+      if: env.TAR_only == 'true'
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzab 2>&1 | tee cowtransfer.log
@@ -173,24 +176,28 @@ jobs:
         
         
     - name: Upload openwrt.tar.gzac to cowtransfer
+      if: env.TAR_only == 'true'
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzac 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
     - name: Upload openwrt.tar.gzad to cowtransfer
+      if: env.TAR_only == 'true'
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzad 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"  
     - name: Upload openwrt.tar.gzae to cowtransfer
+      if: env.TAR_only == 'true'
       run: | 
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzae 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")" 
     - name: Upload openwrt.tar.gzaf to cowtransfer
+      if: env.TAR_only == 'true'
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaf 2>&1 | tee cowtransfer.log
