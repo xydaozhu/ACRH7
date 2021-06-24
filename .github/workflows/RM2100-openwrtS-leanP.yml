@@ -35,7 +35,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
-  TAR_BEFORE: true
+  TAR_BEFORE: false
   TAR_AFTER: false
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
@@ -58,6 +58,7 @@ jobs:
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
+        sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
@@ -191,7 +192,7 @@ jobs:
     - name: sleep 5a
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaa ]; then
+        if [ -e /workdir/openwrt.tar.gzab ]; then
         sleep 5m
         fi        
     - name: Upload openwrt.tar.gzab to WeTransfer
@@ -206,7 +207,7 @@ jobs:
     - name: sleep 5b
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzab ]; then
+        if [ -e /workdir/openwrt.tar.gzac ]; then
         sleep 5m
         fi
       
@@ -222,7 +223,7 @@ jobs:
     - name: sleep 5c
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzac ]; then
+        if [ -e /workdir/openwrt.tar.gzad ]; then
         sleep 5m
         fi
     - name: Upload openwrt.tar.gzad to WeTransfer
@@ -237,7 +238,7 @@ jobs:
     - name: sleep 5d
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzad ]; then
+        if [ -e /workdir/openwrt.tar.gzae ]; then
         sleep 5m
         fi
       
@@ -253,7 +254,7 @@ jobs:
     - name: sleep 5e
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzae ]; then
+        if [ -e /workdir/openwrt.tar.gzaf ]; then
         sleep 5m
         fi 
       
@@ -269,7 +270,7 @@ jobs:
     - name: sleep 5f
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaf ]; then
+        if [ -e /workdir/openwrt.tar.gzag ]; then
         sleep 5m
         fi      
     - name: Upload openwrt.tar.gzag to WeTransfer
@@ -284,7 +285,7 @@ jobs:
     - name: sleep 5g
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzag ]; then
+        if [ -e /workdir/openwrt.tar.gzah ]; then
         sleep 5m
         fi     
       
@@ -300,7 +301,7 @@ jobs:
     - name: sleep 5h
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzah ]; then
+        if [ -e /workdir/openwrt.tar.gzai ]; then
         sleep 5m
         fi
     - name: Upload openwrt.tar.gzai to WeTransfer
@@ -315,7 +316,7 @@ jobs:
     - name: sleep 5i
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzai ]; then
+        if [ -e /workdir/openwrt.tar.gzaj ]; then
         sleep 5m
         fi
       
@@ -338,7 +339,7 @@ jobs:
     - name: sleep 5a
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaa ]; then
+        if [ -e /workdir/openwrt.tar.gzab ]; then
         sleep 5m
         fi
       
@@ -352,7 +353,7 @@ jobs:
     - name: sleep 5b
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzab ]; then
+        if [ -e /workdir/openwrt.tar.gzac ]; then
         sleep 5m
         fi
              
@@ -367,7 +368,7 @@ jobs:
     - name: sleep 5c
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzac ]; then
+        if [ -e /workdir/openwrt.tar.gzad ]; then
         sleep 5m
         fi
              
@@ -381,7 +382,7 @@ jobs:
     - name: sleep 5d
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzad ]; then
+        if [ -e /workdir/openwrt.tar.gzae ]; then
         sleep 5m
         fi
              
@@ -395,7 +396,7 @@ jobs:
     - name: sleep 5e
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzae ]; then
+        if [ -e /workdir/openwrt.tar.gzaf ]; then
         sleep 5m
         fi
              
@@ -409,7 +410,7 @@ jobs:
     - name: sleep 5f
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaf ]; then
+        if [ -e /workdir/openwrt.tar.gzag ]; then
         sleep 5m
         fi
              
@@ -423,7 +424,7 @@ jobs:
     - name: sleep 5g
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzag ]; then
+        if [ -e /workdir/openwrt.tar.gzah ]; then
         sleep 5m
         fi
              
@@ -437,7 +438,7 @@ jobs:
     - name: sleep 5h
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzah ]; then
+        if [ -e /workdir/openwrt.tar.gzai ]; then
         sleep 5m
         fi
              
@@ -451,7 +452,7 @@ jobs:
     - name: sleep 5i
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzai ]; then
+        if [ -e /workdir/openwrt.tar.gzaj ]; then
         sleep 5m
         fi
              
@@ -465,7 +466,7 @@ jobs:
     - name: sleep 5j
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaj ]; then
+        if [ -e /workdir/openwrt.tar.gzak ]; then
         sleep 5m
         fi
         
