@@ -35,7 +35,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
-  TAR_BEFORE: false
+  TAR_BEFORE: true
   TAR_AFTER: false
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
@@ -148,6 +148,7 @@ jobs:
 
     - name: Compile the firmware
       id: compile
+      if: env.TAR_BEFORE == 'false'
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
