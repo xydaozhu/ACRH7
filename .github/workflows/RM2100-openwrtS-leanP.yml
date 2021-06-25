@@ -31,7 +31,7 @@ env:
   DIY_SH: RM2100.openwrtS.leanP.sh
   KVR: hostapd.sh.no
   KM: 102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch.no
-  UTC_NTP: config_generate.no
+  UTC_NTP: config_generate
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
