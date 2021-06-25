@@ -29,7 +29,7 @@ env:
   FEEDS_CONF: RM2100.feeds.openwrt.lean.conf
   CONFIG_FILE: RM2100.openwrtS.leanP.config
   DIY_SH: RM2100.openwrtS.leanP.sh
-  KVR: hostapd.sh.no
+  KVR: hostapd.sh
   KM: 102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch.no
   UTC_NTP: config_generate
   UPLOAD_BIN_DIR: false
