@@ -30,7 +30,7 @@ mkdir /workdir/openwrt/package/lean
 cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
 # cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
 # cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
-# cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-app-adbyby-plus
+cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-app-adbyby-plus
 # cp -r lede/package/lean/luci-app-sfe  /workdir/openwrt/package/lean/luci-app-sfe
 # cp -r lede/package/lean/luci-app-ipsec-vpnd /workdir/openwrt/package/lean/luci-app-ipsec-vpnd
 # cp -r lede/package/lean/UnblockNeteaseMusic /workdir/openwrt/package/lean/UnblockNeteaseMusic
