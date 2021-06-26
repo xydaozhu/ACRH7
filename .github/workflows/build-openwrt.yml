@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #https://git.lede-project.org/source.git
 
-name: Build OpenWrt-kvr
+name: old-Build OpenWrt-kvr
 
 on:
   repository_dispatch:
