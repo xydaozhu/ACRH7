@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Get-Openwrt-Lean
+name: old-Get-Openwrt-Lean
 
 on:
   repository_dispatch:
