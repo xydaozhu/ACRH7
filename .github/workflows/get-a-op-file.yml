@@ -7,6 +7,7 @@
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
 #https://git.lede-project.org/source.git
+#       ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt/package/network/services/hostapd/files/hostapd.sh 2>&1 | tee cowtransfer.log
 
 name: get-a-op-file
 
@@ -64,9 +65,7 @@ jobs:
     - name: Upload openwrt/package/network/services/hostapd/files/hostapd.sh to cowtransfer
       run: | 
         curl -fsSL git.io/file-transfer | sh
-        
-#         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt/package/network/services/hostapd/files/hostapd.sh 2>&1 | tee cowtransfer.log
-        ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt//package/base-files/files/bin/config_generate 2>&1 | tee cowtransfer.log
+        ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt/package/base-files/files/bin/config_generate 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
         
