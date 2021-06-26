@@ -9,7 +9,7 @@
 #https://git.lede-project.org/source.git
 #       ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt/package/network/services/hostapd/files/hostapd.sh 2>&1 | tee cowtransfer.log
 
-name: get-a-op-file
+name: Get-a-op-file
 
 on:
   repository_dispatch:
