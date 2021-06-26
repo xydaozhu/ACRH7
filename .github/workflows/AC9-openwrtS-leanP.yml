@@ -26,9 +26,9 @@ env:
   REPO_BRANCH: master
 #  REPO_BRANCH: openwrt-19.07
 #  FEEDS_CONF: RM2100.feeds.lean.conf
-  FEEDS_CONF: RM2100.feeds.openwrt.lean.conf
+  FEEDS_CONF: AC9.feeds.openwrt.lean.conf
   CONFIG_FILE: AC9.openwrtS.leanP.config
-  DIY_SH: RM2100.openwrtS.leanP.sh
+  DIY_SH: AC9.openwrtS.leanP.sh
 #  KVR: hostapd.sh
 #  KM: 102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch
   UTC_NTP: config_generate
