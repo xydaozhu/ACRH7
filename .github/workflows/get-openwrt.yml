@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Get-OpenWrt
+name: old-Get-OpenWrt
 
 on:
   repository_dispatch:
