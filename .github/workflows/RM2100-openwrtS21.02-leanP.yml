@@ -36,7 +36,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
-  TAR_BEFORE: false
+  TAR_BEFORE: true
   TAR_AFTER: true
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
@@ -160,6 +160,7 @@ jobs:
     - name: tar after compile
       id: tar_after_compile
       if: env.TAR_AFTER == 'true' && !cancelled()
+      if: env.TAR_BEFORE == 'false' 
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz  
