@@ -21,12 +21,12 @@ git clone https://github.com/coolsnowwolf/lede.git
 mkdir /workdir/openwrt/package/lean
 cp -r lede/package/lean  /workdir/openwrt/package/
 # rm -r /workdir/openwrt/package/lean/luci-app-sfe
-git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
-cp package/lean/Openwrt-sfe-flowoffload-linux-5.4/*.patch  target/linux/generic/hack-5.4/
-cp -r package/lean/Openwrt-sfe-flowoffload-linux-5.4/shortcut-fe package/kernel/
-rm -r package/lean/Openwrt-sfe-flowoffload-linux-5.4
-rm -r package/lean/shortcut-fe
-rm -r package/lean/fast-classifier
+# git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
+# cp package/lean/Openwrt-sfe-flowoffload-linux-5.4/*.patch  target/linux/generic/hack-5.4/
+# cp -r package/lean/Openwrt-sfe-flowoffload-linux-5.4/shortcut-fe package/kernel/
+# rm -r package/lean/Openwrt-sfe-flowoffload-linux-5.4
+# rm -r package/lean/shortcut-fe
+# rm -r package/lean/fast-classifier
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
 # cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
 # cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
