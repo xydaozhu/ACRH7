@@ -37,7 +37,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   TAR_BEFORE: true
-  TAR_AFTER: true
+  TAR_AFTER: false
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
@@ -149,6 +149,7 @@ jobs:
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz        
     - name: Compile the firmware
       id: compile
+      if: env.TAR_BEFORE == 'false'
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
@@ -159,7 +160,7 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
     - name: tar after compile
       id: tar_after_compile
-      if: env.TAR_AFTER == 'true' && !cancelled() && env.TAR_BEFORE == 'false' 
+      if: env.TAR_AFTER == 'true' && !cancelled() 
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz  
