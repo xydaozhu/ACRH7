@@ -159,8 +159,7 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
     - name: tar after compile
       id: tar_after_compile
-      if: env.TAR_AFTER == 'true' && !cancelled()
-      if: env.TAR_BEFORE == 'false' 
+      if: env.TAR_AFTER == 'true' && !cancelled() && env.TAR_BEFORE == 'false' 
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz  
