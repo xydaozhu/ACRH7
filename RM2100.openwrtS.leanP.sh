@@ -21,12 +21,13 @@ git clone https://github.com/coolsnowwolf/lede.git
 mkdir /workdir/openwrt/package/lean
 cp -r lede/package/lean  /workdir/openwrt/package/
 # rm -r /workdir/openwrt/package/lean/luci-app-sfe
-# git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
-# cp package/lean/Openwrt-sfe-flowoffload-linux-5.4/*.patch  target/linux/generic/hack-5.4/
-# cp -r package/lean/Openwrt-sfe-flowoffload-linux-5.4/shortcut-fe package/kernel/
-# rm -r package/lean/Openwrt-sfe-flowoffload-linux-5.4
-# rm -r package/lean/shortcut-fe
-# rm -r package/lean/fast-classifier
+git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4  package/lean/Openwrt-sfe-flowoffload-linux-5.4
+cp package/lean/Openwrt-sfe-flowoffload-linux-5.4/*.patch  target/linux/generic/hack-5.4/
+cp -r package/lean/Openwrt-sfe-flowoffload-linux-5.4/shortcut-fe package/kernel/
+rm -r package/lean/Openwrt-sfe-flowoffload-linux-5.4
+rm -r package/lean/shortcut-fe
+rm -r package/lean/fast-classifier
+rm -r package/lean/luci-app-jd-dailybonus
 # cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
 # cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
 # cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
@@ -85,6 +86,7 @@ ls /workdir/openwrt/package/lean/ -l
 # pushd package/po2lmo
 # make && sudo make install
 # popd
+
 
 # 测试交换机
 # sudo apt-get -y install build-essential binutils flex bison autoconf gettext texinfo sharutils subversion libncurses5-dev ncurses-term gawk zlib1g-dev libssl-dev mercurial
@@ -167,3 +169,5 @@ git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-a
 
 # Change default shell to zsh
 # sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+cd lede/package/lean/  
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
