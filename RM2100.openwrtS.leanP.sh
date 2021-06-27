@@ -169,5 +169,5 @@ git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-a
 
 # Change default shell to zsh
 # sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
-cd lede/package/lean/  
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
+ 
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-serverchan
