@@ -17,7 +17,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-git clone https://github.com/coolsnowwolf/lede.git
+# git clone https://github.com/coolsnowwolf/lede.git
 mkdir /workdir/openwrt/package/lean
 # cp -r lede/package/lean  /workdir/openwrt/package/
 # rm -r /workdir/openwrt/package/lean/luci-app-sfe
@@ -27,10 +27,10 @@ mkdir /workdir/openwrt/package/lean
 # rm -r package/lean/Openwrt-sfe-flowoffload-linux-5.4
 # rm -r package/lean/shortcut-fe
 # rm -r package/lean/fast-classifier
-cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
-cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
-cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
-cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-app-adbyby-plus
+# cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
+# cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-app-adbyby-plus
+# cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
+# cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
 # cp -r lede/package/lean/luci-app-sfe  /workdir/openwrt/package/lean/luci-app-sfe
 # cp -r lede/package/lean/luci-app-ipsec-vpnd /workdir/openwrt/package/lean/luci-app-ipsec-vpnd
 # cp -r lede/package/lean/UnblockNeteaseMusic /workdir/openwrt/package/lean/UnblockNeteaseMusic
