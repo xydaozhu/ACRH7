@@ -95,10 +95,10 @@ jobs:
         ./configure --enable-optimizations
         make -j 8
         sudo make altinstall
-        rm openwrt/staging_dir/host/bin/python
-        rm openwrt/staging_dir/host/bin/python3
-        ln -s /usr/local/bin/python3.8 openwrt/staging_dir/host/bin/python
-        ln -s /usr/local/bin/python3.8 openwrt/staging_dir/host/bin/python3
+        rm /workdir/openwrt/staging_dir/host/bin/python
+        rm /workdir/openwrt/staging_dir/host/bin/python3
+        ln -s /usr/local/bin/python3.8 /workdir/openwrt/staging_dir/host/bin/python
+        ln -s /usr/local/bin/python3.8 /workdir/openwrt/staging_dir/host/bin/python3
     - name: Install feeds
       run: |
         cd openwrt
