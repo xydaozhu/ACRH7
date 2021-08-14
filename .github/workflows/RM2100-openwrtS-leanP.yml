@@ -88,14 +88,18 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
       
-#    - name: RM
-#      run: |
-#           cd openwrt 
-#           rm -rf feeds/lienol/lienol/ipt2socks
-#           rm -rf feeds/lienol/lienol/shadowsocksr-libev
-#           rm -rf feeds/lienol/lienol/pdnsd-alt
-#           rm -rf feeds/lienol/package/verysync
-#           rm -rf feeds/lienol/lienol/luci-app-verysync
+    - name: RM
+      run: |
+        wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
+        tar -xf Python-3.8.0.tgz
+        cd Python-3.8.0
+        ./configure --enable-optimizations
+        make -j 8
+        sudo make altinstall
+        rm openwrt/staging_dir/host/bin/python
+        rm openwrt/staging_dir/host/bin/python3
+        ln -s /usr/local/bin/python3.8 openwrt/staging_dir/host/bin/python
+        ln -s /usr/local/bin/python3.8 openwrt/staging_dir/host/bin/python3
     - name: Install feeds
       run: |
         cd openwrt
