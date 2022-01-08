@@ -130,7 +130,7 @@ jobs:
         echo -n '查到: '
         echo -n "$KM"
         echo '  复制到/workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
-        cp -f $KM /workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;
+#         cp -f $KM /workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;
           
         fi        
     - name: SSH connection to Actions
