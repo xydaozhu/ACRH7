@@ -23,8 +23,9 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_BRANCH: master
+#  REPO_BRANCH: master
 #  REPO_BRANCH: openwrt-19.07
+  REPO_BRANCH: openwrt-21.02
 #  FEEDS_CONF: RM2100.feeds.lean.conf
 #  FEEDS_CONF: RM2100.feeds.openwrt.lean.conf
   FEEDS_CONF: feeds.conf.21.02.default
@@ -33,10 +34,10 @@ env:
   KVR: hostapd.sh
   KM: 102-mt7621-fix-cpu-clk-add-clkdev-1100M.patch
   UTC_NTP: config_generate
-  UPLOAD_BIN_DIR: false
+  UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
-  TAR_BEFORE: true
+  TAR_BEFORE: false
   TAR_AFTER: false
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
