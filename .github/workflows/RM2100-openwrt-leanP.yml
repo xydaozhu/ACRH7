@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: RM2100-openwrtS-leanP-get-T
+name: RM2100-openwrt-leanP-get-T
 
 on:
   repository_dispatch:
@@ -25,14 +25,16 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: master
 #  REPO_BRANCH: openwrt-19.07
-#  FEEDS_CONF: RM2100.feeds.lean.conf
-  FEEDS_CONF: RM2100.feeds.openwrt.lean.conf
+#  REPO_BRANCH: openwrt-21.02
+  FEEDS_CONF: RM2100.feeds.lean.conf
+#  FEEDS_CONF: RM2100.feeds.openwrt.lean.conf
+#  FEEDS_CONF: feeds.conf.21.02.default
   CONFIG_FILE: RM2100.openwrtS.leanP.config
   DIY_SH: RM2100.openwrtS.leanP.sh
   KVR: hostapd.sh
-  KM: 102-mt7621-fix-cpu-clk-add-clkdev-1000M.patch
+  KM: 102-mt7621-fix-cpu-clk-add-clkdev-1100M.patch
   UTC_NTP: config_generate
-  UPLOAD_BIN_DIR: false
+  UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   TAR_BEFORE: false
@@ -58,7 +60,6 @@ jobs:
         sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-1804)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
-        sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
@@ -68,8 +69,9 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        git checkout openwrt-21.02        
         ls /workdir/openwrt/target/linux/ramips  -l
-
     - name: Load custom feeds
       run: |
         [ -e files ] && mv files openwrt/files
@@ -88,22 +90,14 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
       
-    - name: RM
-      run: |
-        wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
-        tar -xf Python-3.8.0.tgz
-        cd Python-3.8.0
-        ./configure --enable-optimizations
-        make -j 8
-        sudo make altinstall
-        if [ -e '/workdir/openwrt/staging_dir/host/bin/python' ]; then
-        rm /workdir/openwrt/staging_dir/host/bin/python
-        fi
-        if [ -e '/workdir/openwrt/staging_dir/host/bin/python3' ]; then
-        rm /workdir/openwrt/staging_dir/host/bin/python3
-        fi
-        ln -s /usr/local/bin/python3.8 /workdir/openwrt/staging_dir/host/bin/python
-        ln -s /usr/local/bin/python3.8 /workdir/openwrt/staging_dir/host/bin/python3
+#    - name: RM
+#      run: |
+#           cd openwrt 
+#           rm -rf feeds/lienol/lienol/ipt2socks
+#           rm -rf feeds/lienol/lienol/shadowsocksr-libev
+#           rm -rf feeds/lienol/lienol/pdnsd-alt
+#           rm -rf feeds/lienol/package/verysync
+#           rm -rf feeds/lienol/lienol/luci-app-verysync
     - name: Install feeds
       run: |
         cd openwrt
@@ -130,7 +124,7 @@ jobs:
         echo -n '查到: '
         echo -n "$KM"
         echo '  复制到/workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
-        echo '  cp -f $KM /workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;'
+        cp -f $KM /workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;
           
         fi        
     - name: SSH connection to Actions
@@ -154,7 +148,6 @@ jobs:
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz        
-
     - name: Compile the firmware
       id: compile
       if: env.TAR_BEFORE == 'false'
@@ -168,11 +161,10 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
     - name: tar after compile
       id: tar_after_compile
-      if: env.TAR_AFTER == 'true' && !cancelled()
+      if: env.TAR_AFTER == 'true' && !cancelled() 
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz  
-
     - name: tar target
       id: tar_target
       run: |
@@ -200,7 +192,7 @@ jobs:
     - name: sleep 5a
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzab ]; then
+        if [ -e /workdir/openwrt.tar.gzaa ]; then
         sleep 5m
         fi        
     - name: Upload openwrt.tar.gzab to WeTransfer
@@ -215,7 +207,7 @@ jobs:
     - name: sleep 5b
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzac ]; then
+        if [ -e /workdir/openwrt.tar.gzab ]; then
         sleep 5m
         fi
       
@@ -231,7 +223,7 @@ jobs:
     - name: sleep 5c
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzad ]; then
+        if [ -e /workdir/openwrt.tar.gzac ]; then
         sleep 5m
         fi
     - name: Upload openwrt.tar.gzad to WeTransfer
@@ -246,7 +238,7 @@ jobs:
     - name: sleep 5d
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzae ]; then
+        if [ -e /workdir/openwrt.tar.gzad ]; then
         sleep 5m
         fi
       
@@ -262,7 +254,7 @@ jobs:
     - name: sleep 5e
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaf ]; then
+        if [ -e /workdir/openwrt.tar.gzae ]; then
         sleep 5m
         fi 
       
@@ -278,7 +270,7 @@ jobs:
     - name: sleep 5f
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzag ]; then
+        if [ -e /workdir/openwrt.tar.gzaf ]; then
         sleep 5m
         fi      
     - name: Upload openwrt.tar.gzag to WeTransfer
@@ -293,7 +285,7 @@ jobs:
     - name: sleep 5g
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzah ]; then
+        if [ -e /workdir/openwrt.tar.gzag ]; then
         sleep 5m
         fi     
       
@@ -309,7 +301,7 @@ jobs:
     - name: sleep 5h
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzai ]; then
+        if [ -e /workdir/openwrt.tar.gzah ]; then
         sleep 5m
         fi
     - name: Upload openwrt.tar.gzai to WeTransfer
@@ -324,7 +316,7 @@ jobs:
     - name: sleep 5i
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaj ]; then
+        if [ -e /workdir/openwrt.tar.gzai ]; then
         sleep 5m
         fi
       
@@ -347,7 +339,7 @@ jobs:
     - name: sleep 5a
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzab ]; then
+        if [ -e /workdir/openwrt.tar.gzaa ]; then
         sleep 5m
         fi
       
@@ -361,7 +353,7 @@ jobs:
     - name: sleep 5b
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzac ]; then
+        if [ -e /workdir/openwrt.tar.gzab ]; then
         sleep 5m
         fi
              
@@ -376,7 +368,7 @@ jobs:
     - name: sleep 5c
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzad ]; then
+        if [ -e /workdir/openwrt.tar.gzac ]; then
         sleep 5m
         fi
              
@@ -390,7 +382,7 @@ jobs:
     - name: sleep 5d
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzae ]; then
+        if [ -e /workdir/openwrt.tar.gzad ]; then
         sleep 5m
         fi
              
@@ -404,7 +396,7 @@ jobs:
     - name: sleep 5e
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaf ]; then
+        if [ -e /workdir/openwrt.tar.gzae ]; then
         sleep 5m
         fi
              
@@ -418,7 +410,7 @@ jobs:
     - name: sleep 5f
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzag ]; then
+        if [ -e /workdir/openwrt.tar.gzaf ]; then
         sleep 5m
         fi
              
@@ -432,7 +424,7 @@ jobs:
     - name: sleep 5g
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzah ]; then
+        if [ -e /workdir/openwrt.tar.gzag ]; then
         sleep 5m
         fi
              
@@ -446,7 +438,7 @@ jobs:
     - name: sleep 5h
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzai ]; then
+        if [ -e /workdir/openwrt.tar.gzah ]; then
         sleep 5m
         fi
              
@@ -460,7 +452,7 @@ jobs:
     - name: sleep 5i
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzaj ]; then
+        if [ -e /workdir/openwrt.tar.gzai ]; then
         sleep 5m
         fi
              
@@ -474,7 +466,7 @@ jobs:
     - name: sleep 5j
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled() 
       run: |  
-        if [ -e /workdir/openwrt.tar.gzak ]; then
+        if [ -e /workdir/openwrt.tar.gzaj ]; then
         sleep 5m
         fi
         
