@@ -23,9 +23,9 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_BRANCH: master
+#  REPO_BRANCH: master
 #  REPO_BRANCH: openwrt-19.07
-#  REPO_BRANCH: openwrt-21.02
+  REPO_BRANCH: openwrt-21.02
 #  FEEDS_CONF: RM2100.feeds.lean.conf
 #  FEEDS_CONF: RM2100.feeds.openwrt.lean.conf
   FEEDS_CONF: feeds.conf.21.02.default
