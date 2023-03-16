@@ -60,16 +60,6 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-    - name: Update feeds
-      run: |    
-        cd openwrt
-        ./scripts/feeds update -a
-        ./scripts/feeds install libpam
-        ./scripts/feeds install liblzma
-        ./scripts/feeds install libnetsnmp
-
-    - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
 
     - name: tar
       id: tar
