@@ -17,14 +17,6 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 # Add luci-app-bypass
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-git clone https://github.com/coolsnowwolf/lede.git
-mkdir /workdir/openwrt/package/lean
-cp -r lede/package/lean/adbyby  /workdir/openwrt/package/lean/adbyby
-cp -r lede/package/lean/vlmcsd  /workdir/openwrt/package/lean/vlmcsd
-cp -r lede/package/lean/luci-app-vlmcsd  /workdir/openwrt/package/lean/luci-app-vlmcsd
-cp -r lede/package/lean/luci-app-adbyby-plus /workdir/openwrt/package/lean/luci-app-adbyby-plus
-cp -r lede/package/lean/luci-app-sfe  /workdir/openwrt/package/lean/luci-app-sfe
-ls /workdir/openwrt/package/lean/ -l
 
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
@@ -32,8 +24,6 @@ ls /workdir/openwrt/package/lean/ -l
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
 #git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
 
 
