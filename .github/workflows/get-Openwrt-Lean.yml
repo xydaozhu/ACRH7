@@ -261,8 +261,22 @@ jobs:
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
         fi
-    - name: Upload openwrt.tar.gzaa to cowtransfer
+    - name: Upload openwrt.tar.gz to cowtransfer
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gz ]
+      run: | 
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gz 2>&1 | tee cowtransfer.log
+        echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
+        echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
+    - name: sleep 5a
       if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzaa ]; then
+        sleep 5m
+        fi
+              
+    - name: Upload openwrt.tar.gzaa to cowtransfer
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaa ]
       run: | 
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaa 2
@@ -277,7 +291,7 @@ jobs:
         fi
       
     - name: Upload openwrt.tar.gzab to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzab ]
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzab 2
@@ -293,7 +307,7 @@ jobs:
              
         
     - name: Upload openwrt.tar.gzac to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled()
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzac ]
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzac 2>&1 | tee cowtransfer.log
@@ -307,7 +321,7 @@ jobs:
         fi
              
     - name: Upload openwrt.tar.gzad to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzad ]
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzad 2>&1 | tee cowtransfer.log
@@ -321,7 +335,7 @@ jobs:
         fi
              
     - name: Upload openwrt.tar.gzae to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzae ]
       run: | 
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzae 2>&1 | tee cowtransfer.log
@@ -335,7 +349,7 @@ jobs:
         fi
              
     - name: Upload openwrt.tar.gzaf to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaf ]
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaf 2>&1 | tee cowtransfer.log
@@ -349,7 +363,7 @@ jobs:
         fi
              
     - name: Upload openwrt.tar.gzag to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzag ]
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzag 2>&1 | tee cowtransfer.log
@@ -363,7 +377,7 @@ jobs:
         fi
              
     - name: Upload openwrt.tar.gzah to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled()
+      if: env.UPLOAD_TAR == 'true' && !cancelled()&& [ -e /workdir/openwrt.tar.gzah ]
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzah 2>&1 | tee cowtransfer.log
@@ -377,7 +391,7 @@ jobs:
         fi
              
     - name: Upload openwrt.tar.gzai to cowtransfer
-      if: env.UPLOAD_TAR == 'true' && !cancelled() 
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzai ]
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzai 2>&1 | tee cowtransfer.log
@@ -391,7 +405,7 @@ jobs:
         fi
              
     - name: Upload openwrt.tar.gzaj to cowtransfer 
-      if: env.UPLOAD_TAR == 'true' && !cancelled()
+      if: env.UPLOAD_TAR == 'true' && !cancelled() && [ -e /workdir/openwrt.tar.gzaj ]
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaj 2>&1 | tee cowtransfer.log
