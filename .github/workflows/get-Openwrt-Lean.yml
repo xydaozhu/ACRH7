@@ -32,7 +32,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
   UPLOAD_TAR: true
-  UPLOAD_WETRANSFER: true
+  UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
@@ -111,6 +111,8 @@ jobs:
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz 
+        ls
+        ls -l
     - name: Upload openwrt.tar.gz to WeTransfer
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
