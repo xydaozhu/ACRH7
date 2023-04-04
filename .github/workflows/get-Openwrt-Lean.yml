@@ -111,7 +111,21 @@ jobs:
       run: |
         cd /workdir
         tar czf - openwrt | split -b 1000m - openwrt.tar.gz 
-        
+    - name: Upload openwrt.tar.gz to WeTransfer
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
+      run: |
+        if [ -e /workdir/openwrt.tar.gz ]; then
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer wet -s -p 16 --no-progress /workdir/openwrt.tar.gz 2>&1 | tee wetransfer.log
+        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
+        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")" 
+        fi
+    - name: sleep 5
+      if: env.UPLOAD_WETRANSFER == 'true' && !cancelled() 
+      run: |  
+        if [ -e /workdir/openwrt.tar.gzaa ]; then
+        sleep 5m
+        fi         
     - name: Upload openwrt.tar.gzaa to WeTransfer
       if: env.UPLOAD_WETRANSFER == 'true' && !cancelled()
       run: |
