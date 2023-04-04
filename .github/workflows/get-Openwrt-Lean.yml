@@ -22,7 +22,8 @@ on:
 #    - cron: 0 0 * * 5
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt.git
+  REPO_URL: https://github.com/coolsnowwolf/lede
+#    REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: master
   FEEDS_CONF: RM2100.feeds.openwrt.lean.conf
   CONFIG_FILE: RM2100.openwrt.lean.config
