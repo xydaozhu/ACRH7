@@ -93,24 +93,10 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         mv $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config
-        if [ -e $KVR ]; then
-        echo '查到hostapd.sh，复制到openwrt/package/network/services/hostapd/files/hostapd.sh'
-        cp -f $KVR openwrt/package/network/services/hostapd/files/hostapd.sh;
-          
-        fi
-        
-        if [ -e '/usr/bin/upx' ]; then
-        echo '查到/usr/bin/upx，复制到/workdir/openwrt/staging_dir/host/bin/upx'
-        cp /usr/bin/upx /workdir/openwrt/staging_dir/host/bin/upx;
-          
-        fi
-        if [ -e $KM ]; then 
-        echo -n '查到: '
-        echo -n "$KM"
-        echo '  复制到/workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch'
-        cp -f $KM /workdir/openwrt/target/linux/ramips/patches-5.4/102-mt7621-fix-cpu-clk-add-clkdev.patch;
-          
-        fi        
+
+      
+
+       
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
