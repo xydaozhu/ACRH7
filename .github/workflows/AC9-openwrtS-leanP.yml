@@ -24,7 +24,7 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
 #  REPO_BRANCH: master
-  REPO_BRANCH: openwrt-17.01
+  REPO_BRANCH: lede-17.01
 #  FEEDS_CONF: RM2100.feeds.lean.conf
   FEEDS_CONF: AC9.feeds.openwrt.lean.conf
   CONFIG_FILE: AC9.openwrtS.leanP.config
