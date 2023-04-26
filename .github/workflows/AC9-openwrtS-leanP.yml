@@ -77,6 +77,9 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_SH
+        cd package
+        wget https://github.com/messense/aliyundrive-webdav/archive/refs/tags/v1.11.0.zip --no-check-certificate
+        unzip v1.11.0.zip
 #        sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
