@@ -21,7 +21,7 @@ on:
 
 env:
   REPO_URL: https://github.com/thunder361/lede
- # https://github.com/coolsnowwolf/lede
+ # https://github.com/coolsnowwolf/lede 
   REPO_BRANCH: master
   FEEDS_CONF: get-lean-feeds.conf.default
   CONFIG_FILE: .config
