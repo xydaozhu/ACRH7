@@ -64,7 +64,7 @@ jobs:
       run: |    
         cd openwrt
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF feeds.conf.default
-      # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+      # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default 
         ./scripts/feeds update -a
         rm -rf feeds/lienol/lienol/ipt2socks
         rm -rf feeds/lienol/lienol/shadowsocksr-libev
