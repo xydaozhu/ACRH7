@@ -61,9 +61,9 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Update feeds
       run: |    
+        
+        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         cd openwrt
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF feeds.conf.default
-       
         ./scripts/feeds update -a
         rm -rf feeds/lienol/lienol/ipt2socks
         rm -rf feeds/lienol/lienol/shadowsocksr-libev
