@@ -78,7 +78,7 @@ jobs:
         tar cvzf openwrt.tar.gz openwrt 2>/workdir/1    
     - name: transfer lean
       run: |
-        curl -fsSL git.io/file-transfer | sh
+        curl -sL git.io/file-transfer | sh
         ./transfer wss --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gz 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
         echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"  
