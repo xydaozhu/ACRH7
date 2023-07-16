@@ -6,7 +6,7 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
-#
+# # https://github.com/coolsnowwolf/lede  # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 name: Get-lean
 
@@ -21,7 +21,6 @@ on:
 
 env:
   REPO_URL: https://github.com/thunder361/lede
- # https://github.com/coolsnowwolf/lede 
   REPO_BRANCH: master
   FEEDS_CONF: get-lean-feeds.conf.default
   CONFIG_FILE: .config
@@ -64,7 +63,7 @@ jobs:
       run: |    
         cd openwrt
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF feeds.conf.default
-      # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default 
+       
         ./scripts/feeds update -a
         rm -rf feeds/lienol/lienol/ipt2socks
         rm -rf feeds/lienol/lienol/shadowsocksr-libev
